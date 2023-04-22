@@ -34,7 +34,7 @@ npm run test-debug - запуск всех тестов в режиме отла
 npm run test-critical - запуск самых важных тестов с тегом @critical
 
 Структура проекта
-
+`
 ├── package.json
 ├── package-lock.json
 ├── README.md
@@ -58,7 +58,7 @@ npm run test-critical - запуск самых важных тестов с т�
 │   ├── install.sh
 │   └── run_tests.sh
 └── .env
-
+`
 src/pageObject/yandexDisk/api/helpers.ts - вспомогательные функции для работы с API Yandex.Disk;
 src/pageObject/yandexDisk/helpers.ts - вспомогательные функции для работы с веб-страницей Yandex.Disk;
 src/pageObject/yandexDisk/index.ts - объекты страниц и элементы страницы для Yandex.Disk;
