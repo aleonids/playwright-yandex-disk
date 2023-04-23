@@ -1,15 +1,25 @@
 
 pipeline {
-  agent { node { label 'build_playwright' } }
+  agent { 
+    docker { 
+      image 'mcr.microsoft.com/playwright'
+    } 
   }
+  environment {
+    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+}
   stages {
     stage('install playwright') {
       steps {
         sh '''
-          docker run -d --name=playwright mcr.microsoft.com/playwright sleep infinity
           npm i -D @playwright/test
           npx playwright install
         '''
+      }
+    }
+    stage('help') {
+      steps {
+        sh 'npx playwright test --help'
       }
     }
     stage('test') {
@@ -27,3 +37,4 @@ pipeline {
       }
     }
   }
+}
