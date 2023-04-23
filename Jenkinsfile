@@ -19,6 +19,7 @@ pipeline {
           npm i --save-dev @types/fs-extra
           npm install js-image-generator
           npm install playwright-extra
+          npm install playwright-extra-plugin-stealth
         '''
       }
     }

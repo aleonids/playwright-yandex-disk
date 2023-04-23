@@ -15,7 +15,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  globalSetup: path.resolve(__dirname, "./src/core/global-setup.ts"),
+ // globalSetup: path.resolve(__dirname, "./src/core/global-setup.ts"),
   use: {
     storageState: "storageState.json",
     baseURL: BASE_URL,

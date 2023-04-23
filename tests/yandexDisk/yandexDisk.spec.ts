@@ -3,11 +3,16 @@ import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import { test } from "@playwright/test";
 import * as Helpers from "../../src/pageObject/yandexDisk/helpers";
 import * as HelpersApi from "../../src/pageObject/yandexDisk/api/helpers";
+import { BASE_URL } from "../../src/core/constant";
 
 test.describe("Test Yandex disk", () => {
   test.beforeEach(async ({ page }) => {
     chromium.use(StealthPlugin());
-    await page.goto("/");
+    // await page.goto("/");
+  });
+
+  test("smoke test", async ({ page }) => {
+    await page.goto(BASE_URL);
   });
 
   test("Create a folder @critical", async ({ request, page }) => {
