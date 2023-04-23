@@ -1,14 +1,12 @@
 
 pipeline {
-  agent { 
-    docker { 
-      image 'mcr.microsoft.com/playwright'
-    } 
+  agent { node { label 'build_playwright' } }
   }
   stages {
     stage('install playwright') {
       steps {
         sh '''
+          docker run -d --name=playwright mcr.microsoft.com/playwright sleep infinity
           npm i -D @playwright/test
           npx playwright install
         '''
