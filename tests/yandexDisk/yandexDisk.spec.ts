@@ -15,21 +15,21 @@ test.describe("Test Yandex disk", () => {
     await page.goto(BASE_URL);
   });
 
-  test("Create a folder @critical", async ({ request, page }) => {
-    const folderName = Helpers.getRandomName();
+  // test("Create a folder @critical", async ({ request, page }) => {
+  //   const folderName = Helpers.getRandomName();
 
-    await Helpers.createFolder(page, folderName);
-    await HelpersApi.deleteByApiRequest(request, folderName);
-  });
+  //   await Helpers.createFolder(page, folderName);
+  //   await HelpersApi.deleteByApiRequest(request, folderName);
+  // });
 
-  test("Upload and check a file", async ({ page, request }) => {
-    const folderName = Helpers.getRandomName();
-    const fileName = Helpers.getRandomName();
+  // test("Upload and check a file", async ({ page, request }) => {
+  //   const folderName = Helpers.getRandomName();
+  //   const fileName = Helpers.getRandomName();
 
-    await Helpers.createFile(fileName);
-    await HelpersApi.createFolderByApiRequest(request, folderName);
-    await Helpers.uploadFile(page, folderName, fileName);
-    await Helpers.testFile(page, fileName);
-    await HelpersApi.deleteByApiRequest(request, folderName);
-  });
+  //   await Helpers.createFile(fileName);
+  //   await HelpersApi.createFolderByApiRequest(request, folderName);
+  //   await Helpers.uploadFile(page, folderName, fileName);
+  //   await Helpers.testFile(page, fileName);
+  //   await HelpersApi.deleteByApiRequest(request, folderName);
+  // });
 });

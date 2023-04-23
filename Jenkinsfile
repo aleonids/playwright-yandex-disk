@@ -12,6 +12,11 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
+          apt-get update && \
+          apt-get install -y openjdk-8-jdk && \
+          apt-get install -y ant && \
+          apt-get install -y unzip screen && \
+          apt-get clean;
           npm i -D @playwright/test
           npx playwright install
           npm i -D dotenv
@@ -26,7 +31,6 @@ pipeline {
     stage('test') {
       steps {
         sh '''
-          npx playwright test --list
           npx playwright test
         '''
       }
