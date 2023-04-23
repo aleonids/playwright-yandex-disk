@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "npx playwright install",
-    "test": "npx playwright test --reporter=list",
+    "test": "npx playwright test --reporter=list --headed",
     "test-debug": "PWDEBUG=1 npx playwright test",
     "test-critical": "npx playwright test --grep @critical",
     "test-allure-results": "ALLURE_RESULTS_DIR=allure-results npx playwright test"
