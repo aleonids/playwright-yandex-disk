@@ -1,3 +1,4 @@
+ ssh -i '/playwright.pem'  ec2-user@ec2-13-48-23-182.eu-north-1.compute.amazonaws.com
 Описание
 Данный проект содержит пример использования Playwright для автоматизации тестирования Yandex.Disk.
 
