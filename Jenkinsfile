@@ -12,6 +12,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
+          node -v
           npm install
           npm i -D dotenv
           npm install fs-extra
