@@ -20,8 +20,8 @@ export default defineConfig({
     //  storageState: "storageState.json",
     baseURL: BASE_URL,
     trace: "on-first-retry",
-    screenshot: "only-on-failure",
-    ignoreHTTPSErrors: true,
+    // screenshot: "only-on-failure",
+    // ignoreHTTPSErrors: true,
   },
   projects: [
     {
