@@ -3,6 +3,7 @@ pipeline {
   agent { 
     docker { 
       image 'mcr.microsoft.com/playwright:v1.32.3-focal'
+      args '--ipc=host --network=host'
     } 
   }
   environment {
@@ -12,9 +13,9 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-         npm i -D @playwright/test
+         npm install
          npx playwright install
-         npm list playwright
+         ls -la
         '''
       }
     }
@@ -24,12 +25,6 @@ pipeline {
           npx playwright test
         '''
       }
-      post {
-        success {
-          archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
-          sh 'rm -rf *.png'
-        }
       }
-    }
   }
 }
