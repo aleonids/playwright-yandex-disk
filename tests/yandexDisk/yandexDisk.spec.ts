@@ -12,7 +12,7 @@ test.describe("Test Yandex disk", () => {
   });
 
   test("smoke test", async ({ page }) => {
-    await page.goto(BASE_URL);
+    await page.goto("https://www.21vek.by/");
   });
 
   // test("Create a folder @critical", async ({ request, page }) => {
