@@ -13,9 +13,11 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-         npm install
-         npx playwright install
          ls -la
+         npm install
+         npm install husky --save-dev
+         npx playwright install
+        
         '''
       }
     }
