@@ -17,7 +17,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   // globalSetup: path.resolve(__dirname, "./src/core/global-setup.ts"),
   use: {
-    storageState: "storageState.json",
+    //  storageState: "storageState.json",
     baseURL: BASE_URL,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
