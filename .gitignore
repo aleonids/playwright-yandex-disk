@@ -6,3 +6,4 @@ allure-report
 allure-results
 lib
 storageState.json
+jenkins.war

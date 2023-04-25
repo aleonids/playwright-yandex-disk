@@ -15,22 +15,22 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  // globalSetup: path.resolve(__dirname, "./src/core/global-setup.ts"),
+  globalSetup: path.resolve(__dirname, "./src/core/global-setup.ts"),
   use: {
-    //  storageState: "storageState.json",
+    storageState: "storageState.json",
     baseURL: BASE_URL,
     trace: "on-first-retry",
-    // screenshot: "only-on-failure",
-    // ignoreHTTPSErrors: true,
+    screenshot: "only-on-failure",
+    ignoreHTTPSErrors: true,
   },
   projects: [
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+    },
   ],
 });

@@ -30,7 +30,7 @@ function error_check {
 }
 
 # clearing previous report
-sh scripts/clear-report.sh
+sh scripts/clear_report.sh
 
 # Go to test folder
 cd "${tests_path}" || error_check "Couldn't open ${tests_path} folder"
