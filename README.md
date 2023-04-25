@@ -1,7 +1,9 @@
 ### Описание
+
 Данный проект содержит пример использования Playwright для автоматизации тестирования Yandex.Disk.
 
 ### Установка
+
 Для запуска проекта необходимо выполнить следующие шаги:
 
 Установить Node.js (версия 14 и выше);
@@ -27,6 +29,7 @@
 `npm i -D allure-commandline`
 
 ### Запуск тестов
+
 Для запуска тестов необходимо выполнить команду:
 
 `npm run test - запуск всех тестов`
@@ -39,24 +42,24 @@
 ├── package-lock.json <br/>
 ├── README.md <br/>
 ├── src/ <br/>
-│   ├── pageObject/ <br/>
-│   │   └── yandexDisk/ <br/>
-│   │       ├── api/ <br/>
-│   │       │   ├── helpers.ts <br/>
-│   │       └── helpers.ts <br/>
-│   ├── tests/ <br/>
-│   │   └── yandexDisk/ <br/>
-│   │       └── yandexDisk.spec.ts <br/>
-│   ├── helpers.ts <br/>
-│   └── core/ <br/>
-│       ├── constants.ts <br/>
-│       ├── global-setup.ts <br/>
-│       ├── login.ts <br/>
-│       └── types.ts <br/>
+│&nbsp;&nbsp;&nbsp;├── pageObject/ <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── api/ <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;├── tests/ <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── yandexDisk.spec.ts <br/>
+│&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;└── core/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── constants.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── global-setup.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── login.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── types.ts <br/>
 ├── scripts/ <br/>
-│   ├── clear-report.sh <br/>
-│   ├── install.sh <br/>
-│   └── run_tests.sh <br/>
+│&nbsp;&nbsp;&nbsp;├── clear-report.sh <br/>
+│&nbsp;&nbsp;&nbsp;├── install.sh <br/>
+│&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
 └── .env <br/>
 
 `src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk;
