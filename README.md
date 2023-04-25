@@ -1,23 +1,23 @@
-### Описание
+### Description
 
-Данный проект содержит пример использования Playwright для автоматизации тестирования Yandex.Disk.
+This project contains an example of using Playwright to automate testing of Yandex.Disk.
 
-### Установка
+### Installation
 
-Для запуска проекта необходимо выполнить следующие шаги:
+To run the project, you need to perform the following steps:
 
-Установить Node.js (версия 14 и выше);
+Install Node.js (version 14 and higher);
 
-Склонировать репозиторий с помощью команды:
+Clone the repository using the command:
 
 `git clone https://github.com/aleonids/playwright-yandex-disk.git`
 
-Перейти в папку с проектом и установить зависимости (команды для Linux):
-Запустив команды c помощью скрипта
+Go to the project folder and install dependencies (commands for Linux) <br/>
+Running commands using the script: <br/>
 `chmod +x scripts/install.sh` <br/>
 `sh scripts/install.sh` <br/>
 
-Или вручную:
+Or manually: <br/>
 `npm init playwright@latest` <br/>
 `npm i -D dotenv` <br/>
 `npm install fs-extra` <br/>
@@ -28,15 +28,15 @@
 `npm i -D allure-playwright` <br/>
 `npm i -D allure-commandline` <br/>
 
-### Запуск тестов
+### Running Tests
 
-Для запуска тестов необходимо выполнить команду:
+To run the tests, execute the command: <br/>
 
-`npm run test - запуск всех тестов`
-`npm run test-debug - запуск всех тестов в режиме отладки`
-`npm run test-critical - запуск самых важных тестов с тегом @critical`
+`npm run test` - uns all tests. <br/>
+`npm run test-debug` - runs all tests in debug mode. <br/>
+`npm run test-critical` - runs the most important tests with the tag @critical. <br/>
 
-### Структура проекта
+### Project Structure
 
 ├── package.json <br/>
 ├── package-lock.json <br/>
@@ -62,13 +62,13 @@
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
 └── .env <br/>
 
-- `src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk;
-- `src/pageObject/yandexDisk/helpers.ts` - вспомогательные функции для работы с веб-страницей Yandex.Disk;
-- `src/pageObject/yandexDisk/index.ts` - объекты страниц и элементы страницы для Yandex.Disk;
-- `src/pageObject/index.ts` - общий объект страниц;
-- `src/tests/yandexDisk/yandexDisk.spec.ts` - тесты Yandex.Disk;
-- `.env` - доступы
-- `srs/core/global-setup.ts` - авторизация до запуска тестов. Данные передаются через storageState.json
-- `scripts/clear-report.sh` - скрипт для удаления папок с отчетами allure
-- `scripts/install.sh` - пеовоначальная установка playwright и всех зависимостей (перед запуском выполнить chmod +x scripts/install.sh)
-- `scripts/run-tests.sh` - скрипт для запуска тестов
+- `src/pageObject/yandexDisk/api/helpers.ts` - auxiliary functions for working with the Yandex.Disk API. <br/>
+- `src/pageObject/yandexDisk/helpers.ts` - auxiliary functions for working with the Yandex.Disk web page. <br/>
+- `src/pageObject/yandexDisk/index.ts` - page objects and page elements for Yandex.Disk. <br/>
+- `src/pageObject/index.ts` - common page object. <br/>
+- `src/tests/yandexDisk/yandexDisk.spec.ts` - Yandex.Disk tests. <br/>
+- `.env` - credentials. <br/>
+- `srs/core/global-setup.ts` - authorization before running tests. Data is passed through `storageState.json` <br/>
+- `scripts/clear-report.sh` - script to remove Allure report folders. <br/>
+- `scripts/install.sh` - initial installation script for Playwright and all its dependencies (run `chmod +x scripts/install.sh` before executing). <br/>
+- `scripts/run-tests.sh` - a script for running tests <br/>
