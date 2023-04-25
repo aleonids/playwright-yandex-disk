@@ -14,19 +14,19 @@
 
 Перейти в папку с проектом и установить зависимости (команды для Linux):
 Запустив команды c помощью скрипта
-`chmod +x scripts/install.sh`
-`sh scripts/install.sh`
+`chmod +x scripts/install.sh` <br/>
+`sh scripts/install.sh` <br/>
 
 Или вручную:
-`npm init playwright@latest`
-`npm i -D dotenv`
-`npm install fs-extra`
-`npm i --save-dev @types/fs-extra`
-`npm install js-image-generator`
-`npm install playwright-extra`
-`npm install playwright-extra-plugin-stealth`
-`npm i -D allure-playwright`
-`npm i -D allure-commandline`
+`npm init playwright@latest` <br/>
+`npm i -D dotenv` <br/>
+`npm install fs-extra` <br/>
+`npm i --save-dev @types/fs-extra` <br/>
+`npm install js-image-generator` <br/>
+`npm install playwright-extra` <br/>
+`npm install playwright-extra-plugin-stealth` <br/>
+`npm i -D allure-playwright` <br/>
+`npm i -D allure-commandline` <br/>
 
 ### Запуск тестов
 
@@ -62,13 +62,13 @@
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
 └── .env <br/>
 
-`src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk;
-`src/pageObject/yandexDisk/helpers.ts` - вспомогательные функции для работы с веб-страницей Yandex.Disk;
-`src/pageObject/yandexDisk/index.ts` - объекты страниц и элементы страницы для Yandex.Disk;
-`src/pageObject/index.ts` - общий объект страниц;
-`src/tests/yandexDisk/yandexDisk.spec.ts` - тесты Yandex.Disk;
-`.env` - доступы
-`srs/core/global-setup.ts` - авторизация до запуска тестов. Данные передаются через storageState.json
-`scripts/clear-report.sh` - скрипт для удаления папок с отчетами allure
-`scripts/install.sh` - пеовоначальная установка playwright и всех зависимостей (перед запуском выполнить chmod +x scripts/install.sh)
-`scripts/run-tests.sh` - скрипт для запуска тестов
+- `src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk;
+- `src/pageObject/yandexDisk/helpers.ts` - вспомогательные функции для работы с веб-страницей Yandex.Disk;
+- `src/pageObject/yandexDisk/index.ts` - объекты страниц и элементы страницы для Yandex.Disk;
+- `src/pageObject/index.ts` - общий объект страниц;
+- `src/tests/yandexDisk/yandexDisk.spec.ts` - тесты Yandex.Disk;
+- `.env` - доступы
+- `srs/core/global-setup.ts` - авторизация до запуска тестов. Данные передаются через storageState.json
+- `scripts/clear-report.sh` - скрипт для удаления папок с отчетами allure
+- `scripts/install.sh` - пеовоначальная установка playwright и всех зависимостей (перед запуском выполнить chmod +x scripts/install.sh)
+- `scripts/run-tests.sh` - скрипт для запуска тестов
