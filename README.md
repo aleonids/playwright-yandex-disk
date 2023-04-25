@@ -42,24 +42,24 @@
 ├── package-lock.json <br/>
 ├── README.md <br/>
 ├── src/ <br/>
-│&nbsp;&nbsp;&nbsp;├── pageObject/ <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── api/ <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── helpers.ts <br/>
-│&nbsp;&nbsp;&nbsp;├── tests/ <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── yandexDisk.spec.ts <br/>
-│&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
-│&nbsp;&nbsp;&nbsp;└── core/ <br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── constants.ts <br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── global-setup.ts <br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── login.ts <br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── types.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pageObject/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── api/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── tests/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── yandexDisk/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── yandexDisk.spec.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── helpers.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── core/ <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── constants.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── global-setup.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── login.ts <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── types.ts <br/>
 ├── scripts/ <br/>
-│&nbsp;&nbsp;&nbsp;├── clear-report.sh <br/>
-│&nbsp;&nbsp;&nbsp;├── install.sh <br/>
-│&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── clear-report.sh <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── install.sh <br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
 └── .env <br/>
 
 `src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk;
