@@ -14,8 +14,8 @@ pipeline {
     stage('Build Docker image') {
       steps {
         script {
-            def customImage = docker.build("my-custom-image:${env.BUILD_NUMBER}", "-f Dockerfile .")
-            customImage.push()
+            docker.build("playwright-docker:latest", "-f Dockerfile .")
+            
         }
 
         sh '''
