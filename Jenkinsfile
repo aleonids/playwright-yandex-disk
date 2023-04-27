@@ -7,12 +7,17 @@ pipeline {
     } 
   }
   environment {
-   sh "Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
+   LAUNCH_DIAGNOSTICS="true"
    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
 }
   stages {
-    stage('install playwright') {
+    stage('Build Docker image') {
       steps {
+        script {
+            def customImage = docker.build("my-custom-image:${env.BUILD_NUMBER}", "-f Dockerfile .")
+            customImage.push()
+        }
+
         sh '''
          npm install husky --save-dev
          npm install
