@@ -7,7 +7,7 @@ pipeline {
     } 
   }
   environment {
-    LAUNCH_DIAGNOSTICS = "true"
+   Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true
     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
 }
   stages {
