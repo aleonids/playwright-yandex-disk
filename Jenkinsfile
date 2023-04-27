@@ -7,8 +7,8 @@ pipeline {
     } 
   }
   environment {
-   Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true
-    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+   sh "Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
+   NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
 }
   stages {
     stage('install playwright') {
