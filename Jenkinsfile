@@ -7,6 +7,7 @@ pipeline {
     } 
   }
   environment {
+    LAUNCH_DIAGNOSTICS = "true"
     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
 }
   stages {
