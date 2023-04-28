@@ -7,17 +7,12 @@ pipeline {
     } 
   }
   environment {
-   LAUNCH_DIAGNOSTICS="true"
-   NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    LAUNCH_DIAGNOSTICS = "true"
+    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
 }
   stages {
-    stage('Build Docker image') {
+    stage('install playwright') {
       steps {
-        script {
-            docker.build("playwright-docker:latest", "-f Dockerfile .")
-            
-        }
-
         sh '''
          npm install husky --save-dev
          npm install
