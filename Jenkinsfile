@@ -12,7 +12,7 @@ pipeline {
                 sh 'docker cp /home/leonid/.jenkins/workspace/playwright-docker/. 93142b14e6b3:/autotest-yandex'
                 sh 'docker exec -w /autotest-yandex 93142b14e6b3 npm run test'
                 sh 'docker exec -w /autotest-yandex 93142b14e6b3 npx allure generate allure-results -o allure-report --clean'
-                sh 'docker exec -w /autotest-yandex 93142b14e6b3 npx allure open allure-report'
+                sh 'docker exec -w /autotest-yandex 93142b14e6b3 npx allure open allure-report  -p 8080'
             }
         }
     }
