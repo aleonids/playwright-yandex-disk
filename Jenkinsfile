@@ -9,9 +9,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker cp /home/leonid/.jenkins/workspace/playwright-docker c344ade3c254:/autotest-yandex'
-                sh 'docker exec -t c344ade3c254 ls /autotest-yandex'
-                sh 'docker exec -w c344ade3c254:/autotest-yandex npx playwright test'
+                sh 'docker run --rm --ipc=host aleonids/docker-pw-local /bin/bash'
+                sh 'docker cp /home/leonid/.jenkins/workspace/playwright-docker 93142b14e6b3:/autotest-yandex'
+                sh 'docker exec -t 93142b14e6b3 ls /autotest-yandex'
+                sh 'docker exec -w 93142b14e6b3:/autotest-yandex npx playwright test'
             }
         }
     }
