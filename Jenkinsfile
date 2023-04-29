@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'leonids/docker-pw-local'
+            image 'aleonids/docker-pw-local'
         }
     }
     stages {
