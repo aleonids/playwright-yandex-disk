@@ -11,7 +11,8 @@ pipeline {
             steps {
                 sh 'docker run --rm --ipc=host aleonids/docker-pw-local /bin/bash'
                 sh 'docker cp /home/leonid/.jenkins/workspace/playwright-docker 93142b14e6b3:/autotest-yandex'
-                sh 'docker exec -t 93142b14e6b3 ls /autotest-yandex'
+                sh 'docker exec -w 93142b14e6b3:/autotest-yandex npm install'
+                sh 'docker exec -w 93142b14e6b3:/autotest-yandex npx playwright install'
                 sh 'docker exec -w 93142b14e6b3:/autotest-yandex npx playwright test'
             }
         }
