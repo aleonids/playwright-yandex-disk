@@ -1,7 +1,4 @@
 import { Page, expect, test } from "@playwright/test";
-import imgGen from "js-image-generator";
-import * as fs from "fs";
-import * as fse from "fs-extra";
 
 import {
   BACKGROUND_COLOR,
@@ -18,7 +15,7 @@ import {
   NEW_FOLDER_POPUP,
   RESPONSE_ENDPOINT,
   SAVE_BUTTON,
-  TEST_FILE_EXTENSION,
+  TEST_FILE_NAME,
   TEST_FOLDER,
   UPLOAD,
   UPLOADER,
@@ -62,26 +59,8 @@ export async function createFolder(page: Page, folderName: string) {
   });
 }
 
-// Create a test file
-export async function createFile(fileName: string) {
-  // Сlear the directory or create it if it is missing
-  await fse.emptyDir(TEST_FOLDER);
-
-  // Generate a test file
-  imgGen.generateImage(100, 100, 70, function (err, image) {
-    fs.writeFileSync(
-      `${TEST_FOLDER}/${fileName}.${TEST_FILE_EXTENSION}`,
-      image.data
-    );
-  });
-}
-
 // Upload a file
-export async function uploadFile(
-  page: Page,
-  folderName: string,
-  fileName: string
-) {
+export async function uploadFile(page: Page, folderName: string) {
   const folder = page.locator(FOLDER, {
     has: page.locator(`text="${folderName}"`),
   });
@@ -91,10 +70,7 @@ export async function uploadFile(
     await folder.dblclick();
   });
   await test.step("Upload a file", async () => {
-    await page.setInputFiles(
-      UPLOAD,
-      `${TEST_FOLDER}/${fileName}.${TEST_FILE_EXTENSION}`
-    );
+    await page.setInputFiles(UPLOAD, `${TEST_FOLDER}/${TEST_FILE_NAME}`);
   });
   await test.step("Check the response after uploading the file", async () => {
     await page.waitForResponse(
@@ -114,10 +90,9 @@ export async function uploadFile(
 }
 
 // Check a file
-export async function testFile(page: Page, fileName: string) {
-  const fullFileName = `${fileName}.${TEST_FILE_EXTENSION}`;
+export async function testFile(page: Page) {
   const file = page.locator(LISTING).locator(FILE, {
-    hasText: fileName,
+    hasText: TEST_FILE_NAME,
   });
 
   await test.step("Check that the file has opened", async () => {
@@ -131,7 +106,7 @@ export async function testFile(page: Page, fileName: string) {
     await page.locator(CLOSE_BUTTON).click();
     await expect(
       page.locator(LISTING).locator(FILE, {
-        hasText: fileName,
+        hasText: TEST_FILE_NAME,
       })
     ).toBeVisible();
   });

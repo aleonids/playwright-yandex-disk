@@ -1,6 +1,6 @@
 export const TEST_FOLDER = "lib";
-export const TEST_FILE_EXTENSION = "png";
-export const RESPONSE_ENDPOINT = "?_m=space"
+export const TEST_FILE_NAME = "odh7017kjq.png";
+export const RESPONSE_ENDPOINT = "?_m=space";
 
 export const WRAPPER = ".root__wrapper";
 export const COLUMN_BUTTONS = ".LeftColumn__Buttons";
@@ -19,7 +19,6 @@ export const UPLOADER = ".uploader-progress__progress-bar";
 export const BACKGROUND_COLOR = "rgb(44, 130, 229)";
 export const LISTING = ".listing_completed";
 export const CLOSE_BUTTON = ".slider__button_close";
-
 
 export enum Create {
   Folder,
