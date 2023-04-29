@@ -4,6 +4,4 @@ node_modules/
 /playwright/.cache/
 allure-report
 allure-results
-lib
 storageState.json
-jenkins.war
