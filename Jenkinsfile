@@ -14,7 +14,6 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-         npm install husky --save-dev
          npm install
          npx playwright install
         
