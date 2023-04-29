@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker run -it --rm --ipc=host aleonids/docker-pw-local /bin/bash'
+                sh 'docker run --rm --ipc=host aleonids/docker-pw-local /bin/bash'
                 sh 'docker cp $PWD playwright-docker:/autotest-yandex'
                 sh 'npx playwright test'
             }
