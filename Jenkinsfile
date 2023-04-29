@@ -11,8 +11,8 @@ pipeline {
                 sh 'docker run --rm --ipc=host aleonids/docker-pw-local /bin/bash'
                 sh 'docker cp /home/leonid/.jenkins/workspace/playwright-docker/. 93142b14e6b3:/autotest-yandex'
                 sh 'docker exec -w /autotest-yandex 93142b14e6b3 npm run test'
-                sh 'docker exec -w /autotest-yandex 93142b14e6b3 screen -d -m -S ALLURE allure generate allure-results -o allure-report --clean'
-                sh 'docker exec -w /autotest-yandex 93142b14e6b3 screen -d -m -S ALLURE allure open allure-report -p 8080'
+                sh 'docker exec -w /autotest-yandex 93142b14e6b3 allure generate allure-results -o allure-report --clean'
+                sh 'docker exec -w /autotest-yandex 93142b14e6b3 allure open allure-report'
             }
         }
     }
