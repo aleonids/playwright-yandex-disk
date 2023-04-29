@@ -12,7 +12,8 @@
     "test": "npx playwright test",
     "test-debug": "PWDEBUG=1 npx playwright test",
     "test-critical": "npx playwright test --grep @critical",
-    "test-allure-results": "ALLURE_RESULTS_DIR=allure-results npx playwright test"
+    "test-allure-results": "ALLURE_RESULTS_DIR=allure-results npx playwright test",
+    "test-allure": "ALLURE_RESULTS_DIR=allure-results npx playwright test --reporter=list,allure-playwright"
   },
   "dependencies": {
     "@types/pngjs": "^6.0.1",
