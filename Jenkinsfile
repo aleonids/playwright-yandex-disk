@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker pull aleonids/docker-pw-local'
-                 sh 'docker --version'
+                 sh 'docker ps'
             }
         }
         stage('Test') {
