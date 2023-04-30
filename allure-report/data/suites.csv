@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Apr 19 21:39:19 MSK 2023","Wed Apr 19 21:39:28 MSK 2023","9160","firefox","yandexDisk/yandexDisk.spec.ts","Test Yandex disk","","","Create a folder @critical",""
+"passed","Wed Apr 19 21:39:19 MSK 2023","Wed Apr 19 21:39:26 MSK 2023","7201","chromium","yandexDisk/yandexDisk.spec.ts","Test Yandex disk","","","Create a folder @critical",""
