@@ -17,7 +17,3 @@ pipeline {
         }
     }
 }
-
- docker exec playwright-$BUILD_NUMBER screen -d -m -S ALLURE allure open allure-report-smoke -p 8081
-
- screen -d -m -S ALLURE npx allure open allure-report  -p 8081
