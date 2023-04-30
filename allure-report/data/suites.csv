@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Apr 30 15:54:10 MSK 2023","Sun Apr 30 15:54:26 MSK 2023","15610","chromium","","Test Yandex disk","","","Upload and check a file",""
+"passed","Sun Apr 30 15:54:10 MSK 2023","Sun Apr 30 15:54:29 MSK 2023","18643","firefox","","Test Yandex disk","","","Upload and check a file",""
+"passed","Sun Apr 30 15:54:10 MSK 2023","Sun Apr 30 15:54:23 MSK 2023","13462","firefox","","Test Yandex disk","","","Create a folder @critical",""
+"passed","Sun Apr 30 15:54:10 MSK 2023","Sun Apr 30 15:54:20 MSK 2023","10234","chromium","","Test Yandex disk","","","Create a folder @critical",""
