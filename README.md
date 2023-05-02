@@ -1,23 +1,44 @@
-### Description
+### Описание
 
-This project contains an example of using Playwright to automate testing of Yandex.Disk.
+Данный проект содержит пример использования Playwright для автоматизации тестирования Yandex.Disk.
 
-### Installation
+- Доступы хранятся в файле .env. <br/>
+- Чтобы ускорить тесты и сделать их стабильнее, создание папки и создание файла реализовано отдельными тестами. <br/>
 
-To run the project, you need to perform the following steps:
+![run tests](lib/test-run.png)
 
-Install Node.js (version 14 and higher);
+- Авторизация проходит перед тестами. Данные передаются в тесты через `storageState.json`. Ускоряет прохождение, не нужно логиниться в каждом тесте. <br/>
+- В первом тесте создается папка в UI. <br/>
+- Во втором тесте создается папка по API (т.к. создание папки в UI проверяется в первом тесте) и в нее загружается файл, (Не во всех странах есть возможность создавать документы в яндекс диске, поэтому файл был загружен). Тесты независимые и запускаются одновременно. Если упадет создание папки, то проверка загрузки файла все равно запустится.
+- Для возможности обхода капчи и скрытия режима headless использован `StealthPlugin` плагин. <br/>
+- Отчет о прохождении тестов формируется в таком виде:
+  [https://aleonids.github.io/playwright-yandex-disk/index.html](https://aleonids.github.io/playwright-yandex-disk/index.html) <br/>
+- Для запуска тестов в Jenkins написан скрипт: [https://github.com/aleonids/playwright-yandex-disk/blob/master/scripts/run_tests.sh](https://github.com/aleonids/playwright-yandex-disk/blob/master/scripts/run_tests.sh). Можно запускать все тесты или, например, помеченные тегом @critical. <br/>
+- Настроен запуск тестов из Jenkins в подготовленном docker-образе, загруженном на docker hub. <br/>
+- В параметризованной сборке выбирается запустить все тесты или с тегом @critical: <br/>
 
-Clone the repository using the command:
+![Jenkins screen](lib/jenkins-screen.jpg)
+
+- Переменная c выбранными тестами передается из Jenkins в Docker-контейнер и скрипт run_tests.sh запускает нужные тесты. Скриншот с настройками Jenkins: <br/>
+
+![Jenkins script](lib/Jenkins-script.jpg)
+
+### Установка
+
+Для запуска проекта необходимо выполнить следующие шаги: <br/>
+
+Установить Node.js (версия 14 и выше); <br/>
+
+Склонировать репозиторий с помощью команды: <br/>
 
 `git clone https://github.com/aleonids/playwright-yandex-disk.git`
 
-Go to the project folder and install dependencies (commands for Linux) <br/>
-Running commands using the script: <br/>
+Перейти в папку с проектом и установить зависимости (команды для Linux) <br/>
+Запустив команды c помощью скрипта: <br/>
 `chmod +x scripts/install.sh` <br/>
 `sh scripts/install.sh` <br/>
 
-Or manually: <br/>
+Или вручную: <br/>
 `npm init playwright@latest` <br/>
 `npm i -D dotenv` <br/>
 `npm install fs-extra` <br/>
@@ -28,15 +49,15 @@ Or manually: <br/>
 `npm i -D allure-playwright` <br/>
 `npm i -D allure-commandline` <br/>
 
-### Running Tests
+### Запуск тестов
 
-To run the tests, execute the command: <br/>
+Для запуска тестов необходимо выполнить команду: <br/>
 
-`npm run test` - uns all tests. <br/>
-`npm run test-debug` - runs all tests in debug mode. <br/>
-`npm run test-critical` - runs the most important tests with the tag @critical. <br/>
+`npm run test` - запуск всех тестов <br/>
+`npm run test-debug` - запуск всех тестов в режиме отладки <br/>
+`npm run test-critical` - запуск самых важных тестов с тегом @critical <br/>
 
-### Project Structure
+### Структура проекта
 
 ├── package.json <br/>
 ├── package-lock.json <br/>
@@ -62,13 +83,13 @@ To run the tests, execute the command: <br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── run_tests.sh <br/>
 └── .env <br/>
 
-- `src/pageObject/yandexDisk/api/helpers.ts` - auxiliary functions for working with the Yandex.Disk API. <br/>
-- `src/pageObject/yandexDisk/helpers.ts` - auxiliary functions for working with the Yandex.Disk web page. <br/>
-- `src/pageObject/yandexDisk/index.ts` - page objects and page elements for Yandex.Disk. <br/>
-- `src/pageObject/index.ts` - common page object. <br/>
-- `src/tests/yandexDisk/yandexDisk.spec.ts` - Yandex.Disk tests. <br/>
-- `.env` - credentials. <br/>
-- `srs/core/global-setup.ts` - authorization before running tests. Data is passed through `storageState.json` <br/>
-- `scripts/clear-report.sh` - script to remove Allure report folders. <br/>
-- `scripts/install.sh` - initial installation script for Playwright and all its dependencies (run `chmod +x scripts/install.sh` before executing). <br/>
-- `scripts/run-tests.sh` - a script for running tests <br/>
+- `src/pageObject/yandexDisk/api/helpers.ts` - вспомогательные функции для работы с API Yandex.Disk; <br/>
+- `src/pageObject/yandexDisk/helpers.ts` - вспомогательные функции для работы с веб-страницей Yandex.Disk; <br/>
+- `src/pageObject/yandexDisk/index.ts` - объекты страниц и элементы страницы для Yandex.Disk; <br/>
+- `src/pageObject/index.ts` - общий объект страниц; <br/>
+- `src/tests/yandexDisk/yandexDisk.spec.ts` - тесты Yandex.Disk; <br/>
+- `.env` - доступы <br/>
+- `srs/core/global-setup.ts` - авторизация до запуска тестов. Данные передаются через `storageState.json` <br/>
+- `scripts/clear-report.sh` - скрипт для удаления папок с отчетами allure <br/>
+- `scripts/install.sh` - пеовоначальная установка playwright и всех зависимостей (перед запуском выполнить `chmod +x scripts/install.sh`) <br/>
+- `scripts/run-tests.sh` - скрипт для запуска тестов <br/>
