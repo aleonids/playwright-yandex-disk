@@ -49,7 +49,7 @@ Or manually: <br/>
 
 To run the tests, execute the command: <br/>
 
-`npm run test` - uns all tests. <br/>
+`npm run test` - runs all tests. <br/>
 `npm run test-debug` - runs all tests in debug mode. <br/>
 `npm run test-critical` - runs the most important tests with the tag @critical. <br/>
 
