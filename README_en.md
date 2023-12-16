@@ -1,6 +1,23 @@
 ### Description
 
 This project contains an example of using Playwright to automate testing of Yandex.Disk.
+- Accesses are stored in the .env file. <br/>
+- To speed up tests and make them more stable, creating a folder and creating a file are implemented as separate tests. <br/>
+![run tests](lib/test-run.png)
+
+- Authorization occurs before the tests. Data is passed to the tests via storageState.json. This speeds up the process; there's no need to log in for each test. <br/>
+- The first test creates a folder in the UI. <br/>
+- The second test creates a folder via API (since folder creation in UI is verified in the first test) and uploads a file into it (not all countries have the capability to create documents on Yandex Disk, so a file was uploaded). The tests are independent and run simultaneously. If the folder creation fails, the file upload check will still execute. <br/>
+- To bypass CAPTCHA and hide the headless mode, the StealthPlugin plugin is used. <br/>
+- The test pass report is formatted as follows:
+https://aleonids.github.io/playwright-yandex-disk/index.html <br/>
+- For running tests in Jenkins, a script is written: https://github.com/aleonids/playwright-yandex-disk/blob/master/scripts/run_tests.sh. All tests can be run or, for example, those marked with the @critical tag. <br/>
+- Configured test execution from Jenkins in a prepared Docker image uploaded to Docker Hub. <br/>
+- In the parameterized build, you can choose to run all tests or those tagged @critical: <br/>
+![Jenkins screen](lib/jenkins-screen.jpg)
+
+The variable with selected tests is passed from Jenkins to the Docker container, and the run_tests.sh script runs the necessary tests. Jenkins settings screenshot: <br/>
+![Jenkins script](lib/Jenkins-script.jpg)
 
 ### Installation
 
