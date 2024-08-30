@@ -8,7 +8,7 @@ const token = process.env.TOKEN ?? "";
 export async function createFolderByApiRequest(
   request: APIRequestContext,
   folderName: string
-) {
+): Promise<void> {
   await test.step("Sending a request to create a folder using the API", async () => {
     const response = await request.put(API_URL, {
       headers: {
@@ -26,7 +26,7 @@ export async function createFolderByApiRequest(
 export async function deleteByApiRequest(
   request: APIRequestContext,
   name: string
-) {
+): Promise<void> {
   await test.step("Sending a request to delete a folder using the API", async () => {
     const response = await request.delete(API_URL, {
       headers: {

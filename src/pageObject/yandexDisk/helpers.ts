@@ -1,4 +1,4 @@
-import { Page, expect, test } from "@playwright/test";
+import { Page, Response, expect, test } from "@playwright/test";
 
 import {
   BACKGROUND_COLOR,
@@ -26,15 +26,15 @@ export function getRandomName(): string {
   return (Math.random() + 1).toString(32).substring(2);
 }
 
-export async function createFolder(page: Page, folderName: string) {
+export async function createFolder(
+  page: Page,
+  folderName: string
+): Promise<void> {
   await test.step("Waiting for the page to load", async () => {
     await page.waitForSelector(WRAPPER);
   });
-  const createButton = page.locator(COLUMN_BUTTONS).locator(CREATE_BUTTON);
-
   await test.step("Click on 'Create' button", async () => {
-    await expect(createButton).toBeEnabled();
-    await createButton.click();
+    await page.locator(COLUMN_BUTTONS).locator(CREATE_BUTTON).click();
   });
   const createPopup = page.locator(CREATE_POPUP);
   const newFolderPopup = page.locator(NEW_FOLDER_POPUP);
@@ -60,7 +60,10 @@ export async function createFolder(page: Page, folderName: string) {
 }
 
 // Upload a file
-export async function uploadFile(page: Page, folderName: string) {
+export async function uploadFile(
+  page: Page,
+  folderName: string
+): Promise<void> {
   const folder = page.locator(FOLDER, {
     has: page.locator(`text="${folderName}"`),
   });
@@ -74,7 +77,7 @@ export async function uploadFile(page: Page, folderName: string) {
   });
   await test.step("Check the response after uploading the file", async () => {
     await page.waitForResponse(
-      (response) =>
+      (response: Response) =>
         response.url().includes(RESPONSE_ENDPOINT) && response.status() === 200
     );
   });
@@ -83,26 +86,25 @@ export async function uploadFile(page: Page, folderName: string) {
   await test.step("Assert of the changed background color after upload", async () => {
     const backgroundColor = await page
       .locator(UPLOADER)
-      .evaluate((element) => getComputedStyle(element).backgroundColor);
+      .evaluate(
+        (element: HTMLElement) => getComputedStyle(element).backgroundColor
+      );
 
     expect(backgroundColor).toBe(BACKGROUND_COLOR);
   });
 }
 
 // Check a file
-export async function testFile(page: Page) {
+export async function testFile(page: Page): Promise<void> {
   const file = page.locator(LISTING).locator(FILE, {
     hasText: TEST_FILE_NAME,
   });
 
   await test.step("Check that the file has opened", async () => {
     await expect(file).toBeVisible();
-    await page.waitForTimeout(2000);
     await file.dblclick();
   });
-  const closeButton = page.locator(CLOSE_BUTTON);
   await test.step("Check that the file has closed", async () => {
-    await expect(closeButton).toBeEnabled();
     await page.locator(CLOSE_BUTTON).click();
     await expect(
       page.locator(LISTING).locator(FILE, {

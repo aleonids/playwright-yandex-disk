@@ -3,7 +3,6 @@ import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import { test } from "@playwright/test";
 import * as Helpers from "../../src/pageObject/yandexDisk/helpers";
 import * as HelpersApi from "../../src/pageObject/yandexDisk/api/helpers";
-import { TEST_FILE_NAME } from "../../src/pageObject/yandexDisk/constants";
 
 test.describe("Test Yandex disk", () => {
   test.beforeEach(async ({ page }) => {
